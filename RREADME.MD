@@ -1,11 +1,12 @@
 # What
-最近在学习LLM、OPENAI、langChain...等有趣的新技术。
+最近在学习LLM、OPENAI、langChain...等有趣的新技术。  
 这个repo用来保存学习过程中的demo。
 
 
 # 开始前的准备
-申请OPENAI的KEY。 可以在网络上搜索如何申请key,相信你会找到答案的。
-准备好Python的开发环境和工具。
+- 申请OPENAI的KEY。 可以在网络上搜索如何申请key,相信你会找到答案的。    
+- 准备好Python的开发环境(python 3.9)和工具(pycharm)   
+
 
 
 ## 环境 set up
@@ -24,7 +25,8 @@ $ pip freeze | grep langchain >> requirements.txt
 ```
 
 
-## 我正在使用的版本
+
+## 正在使用的版本
 ```
 langchain==0.0.98
 openai==0.27.0
