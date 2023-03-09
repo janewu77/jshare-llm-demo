@@ -1,0 +1,20 @@
+CREATE TABLE `demo_table_name` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `quantity` decimal(10,2) DEFAULT '1.00',
+  `quantity_unit` varchar(20) DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `user` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `createDT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `transaction_date` datetime DEFAULT NULL,
+  `payment` varchar(200) DEFAULT NULL,
+  `batch_id` varchar(40) DEFAULT NULL,
+  `remark` varchar(1000) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '0 待确认； 1确认',
+  `updateDT` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `creator` varchar(50) DEFAULT NULL,
+  `updator` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=392 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
