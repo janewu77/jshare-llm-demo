@@ -1,6 +1,7 @@
 import json
 import unittest
 from uuid import uuid4
+
 from bookkeeping import db, util
 from bookkeeping.demo35 import Accountant35
 from datetime import datetime
@@ -230,7 +231,6 @@ class TestDict(unittest.TestCase):
         # # self.assertEqual(data.get('results')[0].get('amount'), '40.40')
         # self.assertEqual(float(data.get('results')[0].get('amount')) - 40.4, 0)
 
-
     def test_handle_summary(self):
 
         system_prompt = '''
@@ -262,6 +262,39 @@ class TestDict(unittest.TestCase):
         reply = res['choices'][0]['message']['content']
         # reply = reply.encode('utf-8').decode('unicode_escape')
         print(reply)
+
+
+    def test_validtesql(self):
+        sql = "INSERT INTO transaction_info (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark) VALUES ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折')"
+        self.assertEqual(True, db._varify_sql(sql, 'transaction_info'))
+
+        sql = "INSERT INTO aa (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark) VALUES ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折')"
+        self.assertEqual(False, db._varify_sql(sql, 'transaction_info'))
+
+        sql = "INSERT INTO aa (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark) VALUES ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折')"
+        self.assertEqual(True,  db._varify_sql(sql, 'aa'))
+
+        sql = "adadf无法回答adsf INSERT INTO "
+        self.assertEqual(False, db._varify_sql(sql))
+
+        sql = "adadf无法回答adsf"
+        self.assertEqual(False, db._varify_sql(sql))
+
+        sql = "DELETE From transaction_info"
+        self.assertEqual(False, db._varify_sql(sql))
+
+        sql = "INSERT INTO transaction_info VALUES VALUES"
+        self.assertEqual(False, db._varify_sql(sql))
+
+        sql = "INSERT INTO transaction_info VALUES; DELETE from transaction_info"
+        self.assertEqual(False, db._varify_sql(sql))
+
+        # sql = '''
+        # INSERT INTO transaction_info (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark)
+        # VALUES ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折'),
+        #  ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折')
+        # '''
+        # self.assertEqual(False, db._varify_sql(sql, 'transaction_info'))
 
     if __name__ == '__main__':
         unittest.main()

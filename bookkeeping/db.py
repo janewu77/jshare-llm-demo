@@ -2,6 +2,7 @@ import pymysql
 import traceback
 from cfg.cfg import DB_HOST, DB_USER, DB_USER_PWD
 from cfg.cfg import DB_BOOKKEEPING_NAME, DB_BK_TABLE_NAME
+import sqlparse as sqlparse
 
 
 def __get_db_connect():
@@ -13,9 +14,35 @@ def __get_db_connect():
     return _conn
 
 
-def run_sql(sql):
-    table = DAILYINFO(__get_db_connect())
-    table.add_item(sql)
+def _varify_sql(sql_insert, tn=None):
+    formatted_sql = sqlparse.format(sql_insert, identifier_case='upper')
+
+    if tn is not None and not sql_insert.startswith(f"INSERT INTO {tn}"):
+        return False
+    parsed = sqlparse.parse(formatted_sql)
+    if len(parsed) != 1:
+        return False
+    x = y = 0
+    for each_token in parsed[0].tokens:
+        if each_token.value == 'INSERT':
+            x = x + 1
+        if each_token.value.startswith('VALUES'):
+            y = y + 1
+    if x != 1 or y != 1:
+        return False
+    return True
+
+
+def run_sql(sql, verbose):
+    if not _varify_sql(sql, tn=DB_BK_TABLE_NAME):
+        if verbose:
+            print(f"不正确的SQL:[{sql}]")
+        return
+    else:
+        if verbose:
+            print(f'execute sql...')
+        table = DAILYINFO(__get_db_connect())
+        table.add_item(sql)
 
 
 def query_transactions(username, days):
@@ -49,11 +76,11 @@ class DAILYINFO(BASEDB):
 
     def list_items(self, username, days=0, **kwargs):
         q = f'SELECT user, transaction_date, item, price, quantity, amount, type, payment, remark FROM {self._tablename} '
-        q = q + ' WHERE `user`=%(user)s and `status`=%(status)s '
+        q = q + ' WHERE `username`=%(username)s and `status`=%(status)s '
         q = q + ' AND TO_DAYS(NOW()) - TO_DAYS(transaction_date) <= %(days)s'
         q = q + ' ORDER BY `transaction_date` ASC '
         values = {
-            'user': username,
+            'username': username,
             'days': days,
             'status': 1
         }
@@ -61,11 +88,11 @@ class DAILYINFO(BASEDB):
 
     def list_items_initdata(self, batch_id, username):
         q = f'SELECT * FROM {self._tablename} '
-        q = q + ' WHERE `user`=%(user)s and `status`=%(status)s and `batch_id`=%(batch_id)s '
+        q = q + ' WHERE `username`=%(username)s and `status`=%(status)s and `batch_id`=%(batch_id)s '
         q = q + ' ORDER BY `id` ASC '
         values = {
             'batch_id': batch_id,
-            'user': username,
+            'username': username,
             'status': 0
         }
         return self._execute_query(q, values)
@@ -89,7 +116,6 @@ class DAILYINFO(BASEDB):
                 print("ERROR:[DAILYINFO.list_items]Cannot retrieve query data.\n{}".format(traceback.format_exc()))
         return results_list
 
-
     def add_item(self, sql):
         # id = -1
         connection = self._connection
@@ -111,7 +137,7 @@ class DAILYINFO(BASEDB):
     def update_batch(self, batch_id, username):
         values = {
             'batch_id': batch_id,
-            'user': username,
+            'username': username,
             'updator': username,
             'status': 1
         }
@@ -120,7 +146,7 @@ class DAILYINFO(BASEDB):
     def delete_item(self, batch_id, username, iid):
         values = {
             'batch_id': batch_id,
-            'user': username,
+            'username': username,
             'id': iid,
             'updator': username,
             'status': 2
@@ -129,7 +155,7 @@ class DAILYINFO(BASEDB):
 
     def _execute_update_status(self, values):
         sql = f"UPDATE {self._tablename} SET `status`=%(status)s, `updator`=%(updator)s" \
-              f" WHERE `batch_id`=%(batch_id)s and `user`=%(user)s "
+              f" WHERE `batch_id`=%(batch_id)s and `username`=%(username)s "
         if id in values:
             sql += " and `id`=%(id)s "
 

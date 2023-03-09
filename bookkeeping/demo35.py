@@ -29,9 +29,9 @@ price｜浮点数 | 单价
 quantity｜浮点数｜数量｜default:1
 quantity_unit｜字符型｜数量单位｜default:个
 amount｜浮点数 | 金额
-type｜字符型｜标记｜支出=31,收入=42
+ttype｜字符型｜标记｜支出=31,收入=42
 payment | 字符型｜收付款方式
-user｜字符型｜用户
+username｜字符型｜用户
 remark｜字符型｜备注/其他/说明等(100个字以内)
 '''
 
@@ -79,13 +79,7 @@ class Accountant35(object):
             print('\n\n> Entering custom chain[save2db]...')
             print(f'input sql:[{sql_insert}]')
 
-        if not util.varify_sql(sql_insert):
-            print(f"不正确的SQL:[{sql_insert}]")
-        else:
-            if verbose:
-                print(f'execute sql...')
-            db.run_sql(sql_insert)
-
+        db.run_sql(sql_insert, verbose)
         if verbose:
             print('> Finished custom chain[save2db]...\n\n')
 

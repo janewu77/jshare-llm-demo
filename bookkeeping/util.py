@@ -25,15 +25,3 @@ def to_json(data):
     res.update({"_remark": "data from db"})
     return json.dumps(res, default=json_serial, ensure_ascii=False)
 
-
-# todo: verify SQL
-def varify_sql(sql_insert):
-    if '无法回答' in sql_insert \
-            or '抱歉' in sql_insert \
-            or 'DROP' in sql_insert \
-            or 'CREATE' in sql_insert \
-            or 'UPDATE' in sql_insert \
-            or 'DELETE' in sql_insert \
-            or 'INSERT INTO' not in sql_insert:
-        return False
-    return True
