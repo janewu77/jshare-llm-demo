@@ -1,12 +1,14 @@
 import pymysql
 import traceback
+from cfg.cfg import DB_HOST, DB_USER, DB_USER_PWD
+from cfg.cfg import DB_BOOKKEEPING_NAME, DB_BK_TABLE_NAME
 
 
 def __get_db_connect():
-    _conn = pymysql.connect(host='127.0.0.1',
-                            user='your_db_user',
-                            password='db_password',
-                            database='db_name',
+    _conn = pymysql.connect(host=DB_HOST,
+                            user=DB_USER,
+                            password=DB_USER_PWD,
+                            database=DB_BOOKKEEPING_NAME,
                             cursorclass=pymysql.cursors.DictCursor)
     return _conn
 
@@ -39,7 +41,7 @@ def delete(batch_id, username, iid):
 class BASEDB(object):
     def __init__(self, connection, log=None):
         self._connection = connection
-        self._tablename = "demo_table_name"
+        self._tablename = DB_BK_TABLE_NAME
 
 
 class DAILYINFO(BASEDB):
