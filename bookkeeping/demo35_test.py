@@ -289,12 +289,16 @@ class TestDict(unittest.TestCase):
         sql = "INSERT INTO transaction_info VALUES; DELETE from transaction_info"
         self.assertEqual(False, db._varify_sql(sql))
 
-        # sql = '''
-        # INSERT INTO transaction_info (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark)
-        # VALUES ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折'),
-        #  ('3e502a65-06e6-404a-a855-60c89f7f2921', '2023-02-10', '土豆', 100, 5, '筐', 400, '31', '现金', 'test_10', '门口清美打8折')
-        # '''
-        # self.assertEqual(False, db._varify_sql(sql, 'transaction_info'))
+        sql = '''INSERT INTO transaction_info (batch_id, transaction_date, item, price, quantity, quantity_unit, amount, ttype, payment, username, remark)
+        VALUES ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '咖啡', 3, 1, '个', 3, 31, '现金', '唐僧', '购买咖啡'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '酸奶', 5, 1, '个', 5, 31, '现金', '唐僧', '购买酸奶'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '小桔子', 15, 2, '斤', 30, 31, '花呗', '唐僧', '购买小桔子'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '餐费', 150.065, 1, '个', 150.065, 31, '花呗', '唐僧', '和朋友一起吃饭'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '外卖垫付款', 8, 1, '个', 8, 42, '花呗', '唐僧', '小陈垫付的外卖款'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-08', '苹果', 1014, 2, '斤', 2028, 42, '银行转账', '唐僧', '卖苹果收款'),
+       ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-07', '工资', 821, 1, '个', 821, 42, '银行转账', '唐僧', '收到工资');
+        '''
+        self.assertEqual(True, db._varify_sql(sql, 'transaction_info'))
 
     if __name__ == '__main__':
         unittest.main()

@@ -6,10 +6,10 @@ CREATE TABLE `demo_table_name` (
   `quantity_unit` varchar(20) DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
-  `ttype` varchar(255) DEFAULT NULL,
+  `ttype` varchar(255) DEFAULT NULL COMMENT '支出=31,收入=42',
   `createDT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `transaction_date` datetime DEFAULT NULL,
-  `payment` varchar(200) DEFAULT NULL,
+  `payment` varchar(200) DEFAULT NULL COMMENT '收付款方式 支出时默认现金，收入时默认银行转帐',
   `batch_id` varchar(40) DEFAULT NULL,
   `remark` varchar(1000) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '0 待确认； 1确认',
@@ -17,4 +17,4 @@ CREATE TABLE `demo_table_name` (
   `creator` varchar(50) DEFAULT NULL,
   `updator` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=392 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

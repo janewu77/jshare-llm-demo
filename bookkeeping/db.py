@@ -17,10 +17,11 @@ def __get_db_connect():
 def _varify_sql(sql_insert, tn=None):
     formatted_sql = sqlparse.format(sql_insert, identifier_case='upper')
 
-    if tn is not None and not sql_insert.startswith(f"INSERT INTO {tn}"):
+    if tn is not None and not sql_insert.strip().startswith(f"INSERT INTO {tn}"):
         return False
     parsed = sqlparse.parse(formatted_sql)
     if len(parsed) != 1:
+        print(len(parsed))
         return False
     x = y = 0
     for each_token in parsed[0].tokens:
@@ -39,10 +40,10 @@ def run_sql(sql, verbose):
             print(f"不正确的SQL:[{sql}]")
         return
     else:
-        if verbose:
-            print(f'execute sql...')
         table = DAILYINFO(__get_db_connect())
-        table.add_item(sql)
+        table.execute_insert(sql)
+    if verbose:
+        print("execute end.")
 
 
 def query_transactions(username, days):
@@ -103,8 +104,8 @@ class DAILYINFO(BASEDB):
         # cursor = connection.cursor()
         with connection.cursor() as cursor:
             try:
+                print(f"execute sql:{query_sql}")
                 cursor.execute(query_sql, values)
-                print(f"sql:{query_sql}")
             except:
                 print("ERROR:[DAILYINFO.list_items][sql:{}]\n{}".format(query_sql, traceback.format_exc()))
 
@@ -116,17 +117,15 @@ class DAILYINFO(BASEDB):
                 print("ERROR:[DAILYINFO.list_items]Cannot retrieve query data.\n{}".format(traceback.format_exc()))
         return results_list
 
-    def add_item(self, sql):
+    def execute_insert(self, sql):
         # id = -1
         connection = self._connection
         with connection.cursor() as cursor:
             # Create a new record
             try:
-                cursor.execute(sql)
                 print(f"execute sql:{sql}")
-                # self._log.debug(f"sql:{sql}")
+                cursor.execute(sql)
                 # id = connection.insert_id()
-                print("execute end.")
                 connection.commit()
             except Exception as error:
                 # self._log.error("ERROR:[DAILYINFO.add_item][sql:{}]\n{}".format(sql, traceback.format_exc()))
@@ -162,19 +161,12 @@ class DAILYINFO(BASEDB):
         connection = self._connection
         with connection.cursor() as cursor:
             try:
+                print(f"execute sql:{sql}")
                 cursor.execute(sql, values)
-                self._log.debug(f"sql:{sql}")
                 connection.commit()
             except Exception as error:
-                self._log.error("ERROR:[DAILYINFO._execute_update][sql:{}]\n{}".format(sql, traceback.format_exc()))
+                print("ERROR:[DAILYINFO._execute_update][sql:{}]\n{}".format(sql, traceback.format_exc()))
                 raise error
-
-
-def _debug():
-    sql = '''
-    INSERT INTO daily_info (item, price, count, amount, user, flag) VALUES ('盒马买牛奶', 3.23, 1, 3.23, 'tester', '支出')
-    '''
-    run_sql(sql)
 
 
 if __name__ == '__main__':
