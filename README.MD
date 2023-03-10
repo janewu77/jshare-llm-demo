@@ -3,7 +3,8 @@
 这个repo用来保存学习过程中的demo。
 
 # openai-demo
-* 3.5的一个demo
+* gpt-3.5-turbo-demo
+* whisper-1-demo (中文/英文)
 
 # bookkeeping
 * 一个记帐的例子

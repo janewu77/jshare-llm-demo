@@ -31,6 +31,7 @@ class TestDict(unittest.TestCase):
         # 没有日期
         batch_id = str(uuid4())
         user_input = "买了一杯3元的咖啡，买酸奶花了5元，还买了2斤, 15元1斤的小桔子。"
+        # user_input = "I bought a cup of coffee for $3"
         extra_info = {
             'username': "t1-检查日期",
             'batch_id': batch_id,
@@ -306,6 +307,37 @@ class TestDict(unittest.TestCase):
        ('9c3c4225-b224-4e9d-a60b-64b87c5e83ff', '2023-03-07', '工资', 821, 1, '个', 821, 42, '银行转账', '唐僧', '收到工资');
         '''
         self.assertEqual(True, db._varify_sql(sql, 'transaction_info'))
+
+    def _whisper_1_run(self, file_name):
+        import openai
+        # file = open("resources/w1-cn.mp3", "rb")
+        file = open(file_name, "rb")
+        transcription = openai.Audio.transcribe("whisper-1", file)
+        file.close()
+        print(transcription.get("text"))
+        return transcription.get("text")
+
+    def test_12(self):
+        # English + 音频
+        # user_input = "I bought a cup of coffee for $3"
+        # user_input = "刚才在Tim's买了一杯咖啡19块 然后还付了个停车费40块 帮我记一下 谢谢"
+        user_input = self._whisper_1_run("../resources/w1-en.mp3")
+        # user_input = self._whisper_1_run("../resources/w1-cn.mp3")
+        batch_id = str(uuid4())
+        extra_info = {
+            'username': "Jane Doe",
+            'batch_id': batch_id,
+            'today': '2023-2-2',
+            'verbose': True
+        }
+        data_list = Accountant35().recording(user_input, **extra_info)
+        data = json.loads(data_list).get('data')
+        # print(data)
+        self.assertEqual(data.get('total'), 1)
+        self.assertEqual(data.get('results')[0].get('transaction_date'), '2023-02-02T00:00:00')
+        self.assertEqual(data.get('results')[0].get('batch_id'), batch_id)
+        self.assertEqual(31, data.get('results')[0].get('ttype'))
+        self.assertEqual(float(data.get('results')[0].get('amount')) - 3, 0)
 
     if __name__ == '__main__':
         unittest.main()
