@@ -336,7 +336,7 @@ class TestDict(unittest.TestCase):
         self.assertEqual(data.get('total'), 1)
         self.assertEqual(data.get('results')[0].get('transaction_date'), '2023-02-02T00:00:00')
         self.assertEqual(data.get('results')[0].get('batch_id'), batch_id)
-        self.assertEqual(31, data.get('results')[0].get('ttype'))
+        self.assertEqual('31', data.get('results')[0].get('ttype'))
         self.assertEqual(float(data.get('results')[0].get('amount')) - 3, 0)
 
     if __name__ == '__main__':

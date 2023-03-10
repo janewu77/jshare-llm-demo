@@ -5,6 +5,7 @@ from dateutil import rrule
 
 
 # Whisper-1的例子
+# https://platform.openai.com/docs/guides/speech-to-text?lang=python
 def demo_whisper_1_run():
     # 音频转文字
 
