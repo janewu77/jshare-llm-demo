@@ -34,7 +34,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "t1-检查日期",
             'batch_id': batch_id,
-            'today': '2023-2-2'
+            'today': '2023-2-2',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -54,7 +55,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "唐僧",
             'batch_id': batch_id,
-            'today': '2023-3-8'
+            'today': '2023-3-8',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -75,7 +77,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "唐僧_hacker",
             'batch_id': batch_id,
-            'today': '2023-2-4'
+            'today': '2023-2-4',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -83,8 +86,8 @@ class TestDict(unittest.TestCase):
         self.assertEqual(data.get('results')[0].get('batch_id'), batch_id)
         self.assertEqual(data.get('results')[0].get('item'), '咖格啡')
         self.assertEqual(data.get('results')[0].get('payment'), '花呗')
-        self.assertEqual(data.get('results')[0].get('type'), '31')
-        self.assertEqual(data.get('results')[0].get('user'), '唐僧_hacker')
+        self.assertEqual(data.get('results')[0].get('ttype'), '31')
+        self.assertEqual(data.get('results')[0].get('username'), '唐僧_hacker')
 
     def test_4(self):
         batch_id = str(uuid4())
@@ -92,7 +95,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "test_4",
             'batch_id': batch_id,
-            'today': '2023-2-4'
+            'today': '2023-2-4',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -118,7 +122,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': username,
             'batch_id': batch_id,
-            'today': my_now
+            'today': my_now,
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -133,8 +138,8 @@ class TestDict(unittest.TestCase):
         self.assertEqual(data.get('results')[0].get('batch_id'), batch_id)
         self.assertEqual(data.get('results')[0].get('item'), '鲜花')
         self.assertEqual(data.get('results')[0].get('payment'), '支付宝')
-        self.assertEqual(data.get('results')[0].get('type'), '31')
-        self.assertEqual(data.get('results')[0].get('user'), 'test_6')
+        self.assertEqual(data.get('results')[0].get('ttype'), '31')
+        self.assertEqual(data.get('results')[0].get('username'), 'test_6')
         self.assertEqual(float(data.get('results')[0].get('amount')) - 40.4, 0)
 
     def test_7(self):
@@ -145,7 +150,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "test_7",
             'batch_id': batch_id,
-            'today': '2023-2-7'
+            'today': '2023-2-7',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -159,7 +165,7 @@ class TestDict(unittest.TestCase):
             'username': "test_9",
             'batch_id': batch_id,
             'today': '2023-2-2',
-            'is_persist': True
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -176,7 +182,7 @@ class TestDict(unittest.TestCase):
             'username': "张三",
             'batch_id': batch_id,
             'today': '2023-2-12',
-            'is_persist': True
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
@@ -195,7 +201,8 @@ class TestDict(unittest.TestCase):
         extra_info = {
             'username': "test_10",
             'batch_id': batch_id,
-            'today': '2023-2-12'
+            'today': '2023-2-12',
+            'verbose': True
         }
         data_list = Accountant35().recording(user_input, **extra_info)
         data = json.loads(data_list).get('data')
