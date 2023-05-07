@@ -13,6 +13,10 @@
 ##  hualao
 * 放在hugging face上的一个简单demo
 
+## chatGLM-6B-demo
+* 在MAC M2 上的一个尝试
+
 # 开始前的准备
 - 申请OPENAI的KEY。 可以在网络上搜索如何申请key,相信你会找到答案的。    
 - 准备好Python的开发环境(python 3.9)和工具(pycharm)   
+- have fun
