@@ -1,0 +1,3 @@
+openai~=0.27
+python-dateutil~=2.8.2
+
