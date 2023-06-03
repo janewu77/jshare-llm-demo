@@ -56,7 +56,7 @@ Mac pro, Apple M2 MAX, memory 64G, Mac os 13.3.1
     这样模型就下好了，目录结构如下：      
     ![img.png](imgs/model-dirs.png)     
 
-3. MAC准备
+3. MAC准备    
 按ChatGLM官网说明，如果 mac 是用Apple Silicon 或者 AMD GPU ，可以使用 MPS 后端来在 GPU 上运行 ChatGLM-6B。
 可以按Apple 的 官方说明来安装PyTorch-Nightly，👉👉👉[点这里](https://developer.apple.com/metal/pytorch/)👈👈👈
 ⚠️注意：PyTorch-Nightly的版本号是2.1.0.dev2023xxxx，而不是2.0.0。
