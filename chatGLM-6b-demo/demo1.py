@@ -1,3 +1,4 @@
+import torch
 from transformers import AutoTokenizer, AutoModel
 from datetime import datetime
 from dateutil import rrule
@@ -5,9 +6,11 @@ from dateutil import rrule
 my_now = datetime.now()
 
 chatglm_path = '/Users/janewu/llm-model/chatglm-6b'
-tokenizer = AutoTokenizer.from_pretrained(chatglm_path, trust_remote_code=True, revision="v0.1.0")
-model = AutoModel.from_pretrained(chatglm_path, trust_remote_code=True, revision="v0.1.0").half().to('mps')
+DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+print(f"DEVICE:{DEVICE}")
 
+tokenizer = AutoTokenizer.from_pretrained(chatglm_path, trust_remote_code=True, revision="v1.1.0")
+model = AutoModel.from_pretrained(chatglm_path, trust_remote_code=True, revision="v1.1.0").half().to(DEVICE)
 model = model.eval()
 response, history = model.chat(tokenizer, "你好?", history=[])
 print(response)
