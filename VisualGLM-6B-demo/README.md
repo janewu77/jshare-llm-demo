@@ -146,7 +146,7 @@ print(f"[total spend]: {rrule.rrule(freq=rrule.SECONDLY, dtstart=my_now, until=d
 Have Fun！🥳🌈
 
 
-## ChatGLM-6B 介绍
+## VisualGLM-6B 介绍
 VisualGLM-6B 是一个开源的，支持图像、中文和英文的多模态对话语言模型，语言模型基于 ChatGLM-6B，具有 62 亿参数；图像部分通过训练 BLIP2-Qformer 构建起视觉模型与语言模型的桥梁，整体模型共78亿参数。
 
 VisualGLM-6B 依靠来自于 CogView 数据集的30M高质量中文图文对，与300M经过筛选的英文图文对进行预训练，中英文权重相同。该训练方式较好地将视觉信息对齐到ChatGLM的语义空间；之后的微调阶段，模型在长视觉问答数据上训练，以生成符合人类偏好的答案。
