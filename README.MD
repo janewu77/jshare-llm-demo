@@ -19,6 +19,11 @@
 ## fastapi-demo
 * 一个使用fastapi的demo
 
+## VisualGLM-6B
+*  在MAC M2 上 THUDM / VisualGLM-6B 试用
+
+
+*
 # 开始前的准备
 - 申请OPENAI的KEY。 可以在网络上搜索如何申请key,相信你会找到答案的。    
 - 准备好Python的开发环境(python 3.9)和工具(pycharm)   
