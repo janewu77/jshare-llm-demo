@@ -10,7 +10,7 @@ Mac pro, Apple M2 MAX, memory 64G, Mac os 13.3.1
 ## 部署
 
 安装部署和ChatGLM-6B差不多，只是模型不同。   
-安装前可以参考《在Mac上尝试运行ChatGLM-6B模型：一段充满挑战与探索的旅程》把python、Mac环境准备好。   
+安装前可以参考《[在Mac上尝试运行ChatGLM-6B模型：一段充满挑战与探索的旅程](https://zhuanlan.zhihu.com/p/627482464)》把python、Mac环境准备好。   
 如果之前已经跑过 ChatGLM-6B，那可以直接从下载模型开始。
 
 1. 下载模型  
@@ -49,7 +49,6 @@ Mac pro, Apple M2 MAX, memory 64G, Mac os 13.3.1
 3. tips
 如果在运行时出现以下runtime error， 有可能是 ice_text.model 没正常下载。从HF重新下载即可。
 ```
-
 RuntimeError: Internal: /Users/runner/work/sentencepiece/sentencepiece/src/sentencepiece_processor.cc(1102) [model_proto->ParseFromArray(serialized.data(), serialized.size())]
 
 ```
@@ -88,7 +87,7 @@ print(history)
 print(f"[total spend]: {rrule.rrule(freq=rrule.SECONDLY, dtstart=my_now, until=datetime.now()).count()} seconds")
 
 print("=====================")
-image_path = "imgs/pycharm1.png" # 指定图片路径
+image_path = "imgs/1.jpg" # 指定图片路径
 response, history = model.chat(tokenizer, image_path, "描述这张图片。", history=[])
 print(response)
 print(history)
