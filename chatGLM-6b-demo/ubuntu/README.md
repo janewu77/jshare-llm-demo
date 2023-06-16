@@ -316,5 +316,5 @@ ChatGLM-6B 模型的权重的使用则需要遵循 [Model License](https://githu
 * [ChatGLM-6B GitHub](https://github.com/THUDM/ChatGLM-6B)   
 * [ChatGLM-6B 模型文件](https://cloud.tsinghua.edu.cn/d/fb9f16d6dc8f482596c2/)   
 * [示例代码](https://github.com/janewu77/jshare-llm-demo/tree/main/chatGLM-6b-demo/ubuntu)
-* [在MAC上部署](https://github.com/janewu77/jshare-llm-demo/blob/main/chatGLM-6b-demo/README.md)
+* [在Mac上尝试运行ChatGLM-6B模型：一段充满挑战与探索的旅程](https://github.com/janewu77/jshare-llm-demo/blob/main/chatGLM-6b-demo/README.md)
 
