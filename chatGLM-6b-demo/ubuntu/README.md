@@ -1,4 +1,4 @@
-# 手把手带你一起在Ubuntu上部署chatGLM-6b模型
+# 手把手陪你一起在Ubuntu上部署chatGLM-6b模型
 
 
 # 写在前面
