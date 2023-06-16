@@ -259,9 +259,9 @@ python demo.py
 Demo.py的运行结果：     
 ![img.png](img.png)
 
-注意：     
-1.修改模型路径。如果是本地跑，一定要把模型路径改成你模型所在的路径。
-2.如果象我这样服务器上并没有GPU的，注意改成用float()启动模型。
+注意：        
+1.修改模型路径。如果是本地跑，一定要把模型路径改成你模型所在的路径。      
+2.如果象我这样服务器上并没有GPU的，注意改成用float()启动模型。      
 
 
 ## 官方demo
@@ -295,12 +295,12 @@ python api.py
 
 
 # 结尾
-小结，部署步骤一共分三步：
-1.安装环境：安装conda & python
-2.安装模型：下载模型 & 安装模型的依整
-3.检查模型是否安装成功：运行demo。
-
-Have Fun～
+小结，部署步骤一共分三步：         
+1.安装环境：安装conda & python         
+2.安装模型：下载模型 & 安装模型的依整         
+3.检查模型是否安装成功：运行demo。         
+      
+Have Fun～      
 
 
 ## ChatGLM-6B 介绍
@@ -308,7 +308,7 @@ ChatGLM-6B 是一个开源的、支持中英双语问答的对话语言模型，
 
 #### 协议
 
-ChatGLM-6B 模型的权重的使用则需要遵循 [Model License](MODEL_LICENSE)。
+ChatGLM-6B 模型的权重的使用则需要遵循 [Model License](https://github.com/THUDM/ChatGLM-6B/blob/main/MODEL_LICENSE)。
 (不可商用)
 
 
