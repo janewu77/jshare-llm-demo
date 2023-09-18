@@ -1,5 +1,5 @@
 
-# 🚀💻周末一天 在Mac上玩转 Stable-diffusion 模型 🌟🧩
+# 🚀💻周末在Mac上玩转 Stable-diffusion 模型 🌟🧩
 
 
 ## 前言
@@ -221,13 +221,12 @@ python3 demo.py
 得益于现在的开源社区，通常会有一些现成的应用，可供小白直接用。
 就Stable-diffusion而言，如果提前做过一点小功课,那就一定会听说过"WEBUI"这个功能强大的东东。
 即使没听过，也没关系，下面我们一起来安装方式。这是个在Stable-diffusion领域，对小白超级超级友好的操作界面。 
-有它，小白就能立马上手生成出图来了，再也不用担心自己是小白啦。
-这么好的东东，必然是锦上添花的那朵花，我们必须拥有～ 
+这必然是锦上添花的那朵花，我们必须拥有～ 
 
 继续～
 
 
-接下来安装也不会太难。还是老套路，找代码上 github.
+接下来安装也还是老套路，找代码上 github.
 找到官方提供者，看说明，找到在Mac上的安装说明。安装说明连接如下：
 https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon
 接下来，我们就照它来安装。 
