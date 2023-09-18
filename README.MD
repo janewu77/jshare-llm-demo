@@ -22,6 +22,8 @@
 ## VisualGLM-6B
 *  在MAC M2 上 THUDM / VisualGLM-6B 试用
 
+## sd-demo
+*  周末在Mac上玩转 Stable-diffusion 模型
 
 *
 # 开始前的准备
