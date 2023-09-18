@@ -7,7 +7,7 @@
 （其中，大部分时间还是花在下载模型和找插件上面了。）
 
 这次分享如何在Mac上安装部署Stable diffusion，我会尽量从"头"开始分享，尽量让IT小白也能上手。
-同时，还会分享我的p安装大模型的惯用“套路”。
+同时，还会分享我安装大模型的惯用“套路”。
 
 
 在开始之前，先把我的“套路”供出来：“五步部署大模型”。
@@ -47,13 +47,11 @@
 
 步骤：
 - 准备环境与工具
-  - 装Homebrew https://brew.sh/
-    命令如下。在官网首页就能看到这条命令。
+  - 装Homebrew https://brew.sh/ 命令如下。在官网首页就能看到这条命令。
     ```
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-  - 装git https://git-scm.com/
-    安装git的命令，同样进入官网首页后就能找到。
+  - 装git https://git-scm.com/ 安装git的命令，同样进入官网首页后就能找到。
     ```
     brew install git
     ```
