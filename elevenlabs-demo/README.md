@@ -1,5 +1,6 @@
 
 How to use Eelevenlabs
+https://docs.elevenlabs.io/api-reference
 
 ## env
 elevenlabs-39
@@ -9,17 +10,15 @@ elevenlabs-39
 ```commandline
 pip install elevenlabs
 
-// 时间
+other:
 pip install python-dateutil
+
+
+pip install asyncio
 
 ```
 
-按装ffmpeg 播放声音
-On mac you can install it with 'brew install ffmpeg'. 
-On linux and windows you can install it from https://ffmpeg.org/
-
-brew install mpv
-
+按装ffmpeg 、mpv播放声音
 
 ```commandline
  播放声音

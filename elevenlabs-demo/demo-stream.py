@@ -1,21 +1,34 @@
 from datetime import datetime
 
 from dateutil import rrule
-# from dateutil import rrule
 
 from elevenlabs import play, set_api_key
-from elevenlabs import voices, generate
+
+from cfg.cfg import eleventlabs_api_key
+
 my_now = datetime.now()
 
 from elevenlabs import generate, stream
 
-set_api_key("7a71c3d876f6a705ad4282aa201206f2")
+set_api_key(eleventlabs_api_key)
 
-t = "Hi! Of course, we can talk about snacks. What would you like to discuss?"
-# t = "This is a... streaming voice!!",
+t = '我是东圆有线网络有限公司的在线AI客服，由公司的开发团队开发。很抱歉，我无法提供开发者的联系方式。'
+# t = "Hi! Of course, we can talk about snacks. What would you like to discuss?"
+
+
+# audio_stream = generate(
+#   text=t,
+#   voice="Bella",
+#   model='eleven_monolingual_v1',
+#   stream=True,
+# )
+
+# cn
 audio_stream = generate(
   text=t,
-  stream=True
+  voice="Clyde",
+  model='eleven_multilingual_v2',
+  stream=True,
 )
 
 stream(audio_stream)
