@@ -15,7 +15,7 @@ client = OpenAI()
 def stream_and_play(text):
     start_time = datetime.now()
     response = client.audio.speech.create(
-        model="tts-1",  # tts-1 tts-1-hd
+        model="tts-1-hd-1106",  # tts-1 tts-1-hd  tts-1-1106 tts-1-hd-1106
         voice="echo",  # alloy, echo, fable, onyx, nova, and shimmer
         input=text,
     )
