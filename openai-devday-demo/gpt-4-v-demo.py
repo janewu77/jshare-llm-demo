@@ -22,6 +22,8 @@ prompt = '''
 1.详细描述图片。
 2.描述当人们看到这张图时的情绪感受。
 '''
+
+
 def describe_pic(image_path, prompt):
     # prompt = "What’s in this image?"
     # Getting the base64 string
