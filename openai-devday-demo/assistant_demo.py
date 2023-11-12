@@ -49,7 +49,8 @@ def run_assistant(assistant_id, tread_id, q):
     message = client.beta.threads.messages.create(
         thread_id=tread_id,
         role="user",
-        content=q
+        content=q,
+        metadata={"user_id": "user_demo_msg"}
     )
 
     # create run
@@ -63,25 +64,25 @@ def run_assistant(assistant_id, tread_id, q):
 
 
 def retrieve_result(tread_id, run_id):
-    run = client.beta.threads.runs.retrieve(
-        thread_id=tread_id,
-        run_id=run_id
-    )
-    print(f"run:{run}")
-    print(f"run.id:{run.id}")
-    print(f"run.status:{run.status}")
-    print("=======")
-
-    if run.status == "in_progress":
-        time.sleep(1)
-        retrieve_result(tread_id, run_id)
-        return
+    in_progress = True
+    run = None
+    while in_progress:
+        run = client.beta.threads.runs.retrieve(
+            thread_id=tread_id,
+            run_id=run_id
+        )
+        print(f"run:{run}")
+        print(f"run.id:{run.id}")
+        print(f"run.status:{run.status}")
+        print("=======")
+        in_progress = run.status in ("in_progress", "queued")
+        if in_progress:
+            time.sleep(1)
 
     if run.status == "completed":
         show_latest_messages(tread_id)
-        return
 
-    print(f"run.status {run.status}")
+    print(f"run.status:{run.status}")
     print(f"[end]")
 
 
@@ -93,7 +94,7 @@ def show_all_messages(tread_id, is_asc=True):
 
 
 def show_latest_messages(tread_id):
-    messages = client.beta.threads.messages.list(thread_id=tread_id)
+    messages = client.beta.threads.messages.list(thread_id=tread_id, order="asc")
     for msg in messages.data[0:1]:
         _show_message(msg)
 
