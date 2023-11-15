@@ -8,21 +8,36 @@ my_now = datetime.now()
 DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 print(f"DEVICE:{DEVICE}")
 
-# chatglm_path = '/Users/jingwu/janewu/llm-model/chatglm-6b'
-# chatglm_path = '/Users/jingwu/janewu/llm-model/20230625/chatglm2-6b'
-chatglm_path = '/Users/jingwu/janewu/llm-model/20230822/chatglm2-6b-32k'
+chatglm_path = '/Users/jingwu/janewu/llm-model/20231115/chatglm3-6b-32k'
 tokenizer = AutoTokenizer.from_pretrained(chatglm_path, trust_remote_code=True, revision="v1.0")
 model = AutoModel.from_pretrained(chatglm_path, trust_remote_code=True, revision="v1.0").half().to(DEVICE)
 # model = load_model_on_gpus("THUDM/chatglm-6b", num_gpus=2)
 
 model = model.eval()
 
+
+
+
+# Understanding beliefs
+q = '''
+我们将阅读一个场景，然后对其进行讨论。
+
+场景：
+小红和小明有一个共享的 Dropbox 文件夹。
+小红在 /shared_folder/photos 里放了一个叫做 'photo.png' 的文件。
+小明注意到小红把文件放在那里，并将文件移动到 /shared_folder/tmp。
+他没有告诉小红这件事，Dropbox 也没有通知小红。
+
+提问: 
+现在小红想打开 'photo.png'。她会去哪个文件夹里寻找它？
+'''
+
 # 一个推理的例子
 q = '''
 买了一只股票，先涨了10%，再降10%，最终的盈亏情况如何？请给出具体计算过程和结论。
-
 '''
 # 如果想要在10年内实现投资10倍的收益，每年的收益率需要达到多少？请给出具体计算过程和结论。
+
 response, history = model.chat(tokenizer, q, history=[])
 print(response)
 print(f"[total spend]: {rrule.rrule(freq=rrule.SECONDLY, dtstart=my_now, until=datetime.now()).count()} seconds")
