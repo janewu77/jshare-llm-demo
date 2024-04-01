@@ -3,9 +3,9 @@ from datetime import datetime
 from dateutil import rrule
 
 device = "mps"  # the device to load the model onto
-# model_id = "/Users/jingwu/janewu/llm-model/mistralai/Mistral-7B-Instruct-v0.1"
 model_id = "/Users/jingwu/janewu/llm-model/mistralai/Mistral-7B-Instruct-v0.2"
 print(f"model_id:{model_id}")
+
 model = AutoModelForCausalLM.from_pretrained(model_id)
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 

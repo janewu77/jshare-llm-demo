@@ -1,7 +1,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-# 需要至少100G+内存
+#### !!!!需要至少100G+内存!!!!
 device = "mps"
 model_id = "/Users/jingwu/janewu/llm-model/mistralai/Mixtral-8x7B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
