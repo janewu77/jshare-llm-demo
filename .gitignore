@@ -4,3 +4,15 @@
 
 cfg.py
 local-demo/*
+
+sd-demo/cache/*
+
+azure-tts-demo/*
+tmp/*
+pdf-demo/*
+output/*
+*model_3_owners_manual_asia_cn.pdf*
+coqui_tts_demo/output/*
+tts/my_tts/__pycache__
+tts/output/*
+tts/util/__pycache__
