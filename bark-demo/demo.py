@@ -58,8 +58,18 @@ def do_gen_example():
 
 
 if __name__ == '__main__':
-    text_prompt = "我是东圆有线网络有限公司的在线AI客服，由公司的开发团队开发。很抱歉，我无法提供开发者的联系方式。"
-    voice_preset = f"v2/zh_speaker_0"
-    output_wave_fn = f"bark_output_0.zh.wav"
-    do_tts(voice_preset, text_prompt, output_wave_fn)
+    # do_gen_example()
+    # text_prompt = "我是东圆有线网络有限公司的在线AI客服，由公司的开发团队开发。很抱歉，我无法提供开发者的联系方式。"
+    # voice_preset = f"v2/zh_speaker_0"
+    # output_wave_fn = f"bark_output_0.zh.wav"
+    # do_tts(voice_preset, text_prompt, output_wave_fn)
+
+    text_prompt = '''
+    The word "excursion" refers to a short journey or trip, especially one taken as a leisure activity. It typically involves going to a different place, often for enjoyment or educational purposes, and returning within a short period, like within a day.
+    '''
+    voice_preset = f"v2/en_speaker_0"
+    do_tts(voice_preset, text_prompt, "output_wave_male.wav")
+    voice_preset = f"v2/en_speaker_9"
+    do_tts(voice_preset, text_prompt, "output_wave_female.wav")
+
 
