@@ -19,7 +19,7 @@ pip3 install --pre torch torchvision torchaudio --extra-index-url https://downlo
 
 ### cpu VS. mps
 
-64G M2 Max
+parler_tts_mini_v0.1 on 64G M2 Max
 | seconds of audio | cpu(seconds of generation)  | mps(seconds of generation) |
 |------------------|------|-----|
 | 1                | 7   | 10  |
