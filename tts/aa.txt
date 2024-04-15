@@ -1,0 +1,80 @@
+Ever since ChatGPT catapulted generative AI into public consciousness over a year ago, we’ve been introduced to thousands of new consumer products that incorporate the magic of AI — from video generators to workflow hacks, creativity tools to virtual companions.
+
+Six months ago, we did a deep dive into web traffic data to separate the signal from the noise. We ranked the most popular generative AI web products, based on monthly visits, and uncovered patterns in how consumers were actually using this technology.
+
+While there were a few early “winners” that captured widespread attention — namely, ChatGPT and Midjourney — new AI-native companies are emerging every month, spurring a dynamic, competitive market.
+
+Now, six months later, we returned to the data to update our analysis, once again ranking the top 50 AI-first web products, according to SimilarWeb (as of January 2024). What we found was surprising: over 40 percent of the companies on the list are new, compared to our initial September 2023 report.
+
+However, unlike our original analysis — in which we first ranked companies according to web traffic, then added in mobile app data for those companies — this time we split web and mobile gen AI products into two separate lists.
+
+Similar to the web ranking, mobile apps are ordered according to monthly active users, per Sensor Tower data (as of January 2024). This distinction allows us to examine the full universe of top AI mobile apps for the first time. There are marked differences in how consumers interact with gen AI on web vs. mobile, as we’ll get into below.
+
+Beyond the inherent interest of these rankings, however, the data reveals several noteworthy trends around new and expanding categories, AI investment, and patterns of engagement. Here are some of our top takeaways:
+
+
+The Pace of Progress: 22 Newcomers in 6 months
+Given ChatGPT’s impressive early growth — in our analysis six months ago, it was already the 24th most-visited website in the world — we expected the pioneering chatbot to retain its standing at the top of the list. Indeed, ChatGPT gets close to 2 billion monthly web visits, roughly five times that of the second-place company on the list,Bard(now Gemini).
+
+Along with Gemini, companion creator Character.AI and writing assistant Quillbot retained their positions in the top five. That’s not to say the list has been static over the past six months, however: 22 companies were new to the web traffic rankings.
+
+
+Among the so-called newcomers, those highest ranked include Liner, an AI research copilot; Anthropic’s general assistant Claude; and threeuncensoredAI companion apps: JanitorAI, Spicychat, and CrushOn. (More on what’s behind the spike in AI companionship below.)
+
+Our mobile list is entirely new. ChatGPT also leads here — but by a much tighter margin. ChatGPT is roughly 2.5 times the scale of the #2 and #3 players, Microsoft Edge and Photomath, in terms of monthly active users. For mobile products, the top five is rounded out by Microsoft’s search engine, Bing (now rebuilt around AI), and the photo enhancer and avatar creator Remini.
+
+Interestingly, five AI companies are true “crossovers,” with both a web product and a mobile app making the top 50 lists: ChatGPT, Character.AI, the chatbot aggregator Poe, and the image editors Photoroom and Pixelcut.
+
+
+New Categories Emerge: Music, Productivity Tools
+
+Six months ago, we noted that general, LLM-based assistants like ChatGPT made up the bulk of web traffic. In our updated analysis, we saw two new categories enter the mix: music and productivity (which includes tasks like research, coding assistance, and document summarization).
+
+
+Suno is the only music company to make the ranking so far. The tool generates original songs in-browser from a text prompt — complete with lyrics, in a range of styles. Suno started off as a Discord-only product, similar to Midjourney, but launched a standalone site and Copilot extension in December 2023. (Read more on where we see potential in the AI music category here).
+
+Several now-major consumer AI products, like Suno, started out on a Discord server — or still run primarily through Discord. The platform provides a testing ground (and community!) without requiring a full front-end product build-out. True traffic to a Discord server is near-impossible to measure, but web traffic to each server’s invite page is one proxy for this. On this metric, nine AI products or communities rank in the top 100 Discord servers by invite traffic as of January 2024, led by Midjourney in the top spot.
+
+The second notable new category on the list is productivity. AI-native platforms can uplevel people’s interactions with software, allowing them to delegate mundane tasks and cut time spent on administrative overhead. The productivity category encompasses seven companies in the ranking: Liner, Eightify, Phind, MaxAI, Blackbox AI, Otter.ai, and ChatPDF.
+
+With features like in-flow editing and summarization, these companies focus on helping employees, freelancers, and SMB owners get things done more efficiently. Eightify, for example, provides summaries of YouTube videos, while Otter.ai takes meeting notes and transcribes in real-time.
+
+Six of the seven productivity apps on this list either offer or operate entirely through a Google Chrome extension. We expect more AI productivity tools to operate “in the flow” with the work users are already doing, removing the need to copy and paste a prompt and output between your workspace and an assistant like ChatGPT.
+
+Alternatively, AI productivity companies may invent new end-to-end workflows built around the unique capabilities of gen AI. AI workflow products can help users identify what can be improved, then automatically make those improvements.
+
+AI Companionship Gets a Growth Spurt
+
+Having an AI companion might seem niche, but the activity has emerged as a predominant use case for generative AI. There are already millions of people — ourselves included — who have built relationships with chatbots. The web and mobile data signals an impending societal shift here: AI companionship is becoming mainstream.
+
+Six months ago, only two AI companion companies made the list of 50; in this updated analysis, there are eight on web and two on mobile. Character.AI leads the pack of companion tools on both web and mobile, ranking #3 on the web list and #16 on mobile.
+
+Six of the eight web companion products bill themselves as “uncensored,” which means users can have conversations or interactions with them that may be restricted on platforms like ChatGPT. Users largely access these products via mobile web, as opposed to desktop — though almost none of them offer apps. On average, 75 percent of traffic to the uncensored companion tools on our web list comes from mobile.
+
+For companion products that do have mobile apps, engagement is unusually high. The most successful products in this category become a core part of the user’s daily life, becoming as commonplace as texting a friend (if not more so!).
+
+According to SensorTower data, Character.AI draws an average of 298 sessions per month, per user, while Poly.AI sees 74 sessions, on average.
+
+We’re starting to see early signs of a much broader set of companion applications beyond AI “boyfriends” and “girlfriends,” including for friendship, mentorship, entertainment, and eventually, healthcare. In fact, early studies have shown that AI can outperform real doctors in both diagnostic accuracy and bedside manner. And many companion products are multifaceted: in a recent Nature study, the Replika chatbot reduced suicidal ideation for 3 percent of users.
+
+What's behind the mobile vs. web split
+
+Categories of AI use differ significantly on mobile apps vs. web. In general, web products support more complex, multi-step workflow products around content generation and editing —for now!These include products like the AI voice toolkit ElevenLabs, the AI art generator Leonardo, and the AI presentation builder Gamma, all of which rank in the top 20 among web-based gen AI products.
+
+Mobile app usage, meanwhile, skews toward general assistants, many of which mimic ChatGPT. In perusing the list of top mobile apps, you may notice that there are 10 companies with names that are remarkably…similar to ChatGPT. This is partially because ChatGPT was comparatively slow to launch its own app, creating an opportunity for copycats to quickly gain an App Store-optimization advantage, especially if they pay for ads.
+
+Some of the mobile apps that mimic ChatGPT have been called out as “fleeceware.” They trick users into believing they are providing access to ChatGPT’s premium models with a similar title and logo, but, in fact, charge for access to the same model that is freely available from ChatGPT. These apps frequently change their names or descriptions, making it difficult for the app stores to “police” this behavior.
+
+Other popular gen AI mobile app categories are tailored to the phone’s unique features. There are seven dedicated avatar products on the app list; the many selfies saved on most people’s phones serve as readily available training data. In addition, three of the top apps — Facemoji (#9), Bobble (#31), and Genie (#37) — are mobile-specific keyboards that allow users to send texts with help from AI.
+
+Edtech is another popular category on mobile, where users can scan homework problems with their phones (Photomath) or learn a language through live conversations (Elsa). Notably, while the majority of the top gen AI mobile apps are bootstrapped, meaning they raised no outside funding, four of the seven ranked edtech apps have raised upwards of $30 million, according to PitchBook data.
+
+AI is a Global Pursuit
+
+Cerebral Valley may be the epicenter of AI, but hugely popular products are being built all over the world. This is particularly true of mobile apps. Though over 30 percent of the gen AI web products on our list originated in the Bay Area, only 12 percent of the mobile apps’ developers are based there. Similarly, though over half of the top gen AI web products were developed in the U.S., less than a third of the mobile apps originated stateside.
+
+Some mobile developers have had multiple hits:  Istanbul-based app studio Codeway, for example, created the AI photo animator Face Dance, the chatbot app Chat & Ask AI, and the AI art generator Wonder, all of which are on the list of top gen AI mobile apps. HubX, also based in Turkey, developed the Nova chatbot, DaVinci art generator, and the PhotoApp enhancer.
+
+These app studios often benefit from shared expertise across products on how to launch, draw traffic to, and monetize apps. Some of them raise no funding and focus on generating revenue as efficiently as possible. Others do pursue a venture path — Bending Spoons, the Milan-based tech company behind the video editor Splice and the photo enhancer Remini (#5 on the mobile list) recently announced a $155 million equity fundraise.
+
+It’s clear that a new generation of AI-native products and companies are growing faster and engaging users more deeply than ever before. We believe that over the coming decade, AI will underpin category-defining companies.
