@@ -15,6 +15,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_path)
 
 prompt = "Hey, how are you doing today?"
 description = "A male speaker with a slightly low-pitched voice delivers his words quite expressively, in a very confined sounding environment with clear audio quality. He speaks very fast."
+# 17s
 
 input_ids = tokenizer(description, return_tensors="pt").input_ids.to(device)
 prompt_input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
