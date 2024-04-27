@@ -23,8 +23,11 @@ Summary: LLMs on Apple silicon with MLX and the Hugging Face Hub
 
 ### install others
 ```Shell
+pip install transformers
 pip install accelerate
 pip install python-dateutil
+
+pip install llama-cpp-python
 ```
 
 

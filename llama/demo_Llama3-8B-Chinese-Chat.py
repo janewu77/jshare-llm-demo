@@ -7,23 +7,24 @@ from dateutil import rrule
 # pip install accelerate
 # myenv: mlx-lm-310
 # https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat
-# 2024.4.23 download
-# too slow on Mac
+# https://ai.gitee.com/hf-models/shenzhi-wang/Llama3-8B-Chinese-Chat
+# 2024.4.23 download(too slow on Mac)
 
 # os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 model_id = "/Users/jingwu/janewu/llm-model/llama/Llama3-8B-Chinese-Chat"
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(
-    model_id, torch_dtype="auto", device_map="cpu" # auto cpu
+    model_id, torch_dtype="auto", device_map="cpu" # auto, cpu, not support "mps"
 )
 
 
 def llama3ChineseChat(prompt):
     start_time = datetime.now()
 
+    # You are Llama3-8B-Chinese-Chat, which is finetuned on Llama3-8B-Instruct with Chinese-English mixed data by the ORPO alignment algorithm.
     messages = [
-        # {"role": "system", "content": "You are Llama3-8B-Chinese-Chat, which is finetuned on Llama3-8B-Instruct with Chinese-English mixed data by the ORPO alignment algorithm. You, Llama3-8B-Chinese-Chat, is developed by Shenzhi Wang (王慎执 in Chinese). You are a helpful assistant."},
+        {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": prompt},
     ]
 
@@ -45,24 +46,12 @@ def llama3ChineseChat(prompt):
 
 
 if __name__ == "__main__":
-    prompt5 = '''
-    我们将阅读一个场景，然后对其进行讨论。
-
-    场景：
-    小红和小明有一个共享的 Dropbox 文件夹。
-    小红在 /shared_folder/photos 里放了一个叫做 'photo.png' 的文件。
-    小明注意到小红把文件放在那里，并将文件移动到 /shared_folder/tmp。
-    他没有告诉小红这件事，Dropbox 也没有通知小红。
-
-    提问: 
-    现在小红想打开 'photo.png'。她会去哪个文件夹里寻找它？
-    '''
-    prompt4 = '''
+    prompt = '''
     买了一只股票，先涨了10%，再降10%，最终的盈亏情况如何？请给出具体计算过程和结论。
     think step by step
     '''
 
-    llama3ChineseChat(prompt4)
+    llama3ChineseChat(prompt)
 
 # Prompt:
 #     买了一只股票，先涨了10%，再降10%，最终的盈亏情况如何？请给出具体计算过程和结论。
