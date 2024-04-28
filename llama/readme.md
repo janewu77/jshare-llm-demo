@@ -23,8 +23,8 @@ Summary: LLMs on Apple silicon with MLX and the Hugging Face Hub
 
 ### install others
 ```Shell
-pip install transformers
-pip install accelerate
+pip install transformers accelerate
+
 pip install python-dateutil
 
 pip install llama-cpp-python
@@ -38,6 +38,18 @@ python -m mlx_lm.generate --model /Users/jingwu/janewu/llm-model/llama/mlx/Meta-
 
 python -m mlx_lm.generate --model /Users/jingwu/janewu/llm-model/llama/mlx/Meta-Llama-3-70B-Instruct-4bit --prompt "Write a story about Einstein" --temp 0.0 --max-tokens 256
 ```
+
+
+## gguf
+
+Model file from: https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q5_K_M.gguf
+（5.73GB）
+
+Used prompt:(in llamaFarm)
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. <|eot_id|><|start_header_id|>user<|end_header_id|>
+{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
 
 
 
