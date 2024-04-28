@@ -11,11 +11,14 @@ from dateutil import rrule
 # 2024.4.23 download(too slow on Mac)
 
 # os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
-model_id = "/Users/jingwu/janewu/llm-model/llama/Llama3-8B-Chinese-Chat"
+model_id = "/Users/jingwu/janewu/llm-model/llama/Llama3-8B-Chinese-Chat/Llama3-8B-Chinese-Chat"
 
+# Transformers AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(
-    model_id, torch_dtype="auto", device_map="cpu" # auto, cpu, not support "mps"
+    model_id,
+    torch_dtype="auto",  # torch.bfloat16...
+    device_map="cpu"  # auto, cpu, not support "mps"
 )
 
 
@@ -28,8 +31,16 @@ def llama3ChineseChat(prompt):
         {"role": "user", "content": prompt},
     ]
 
-    input_ids = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")\
-        .to(model.device)
+    input_ids = tokenizer.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        return_tensors="pt"
+    ).to(model.device)
+
+    # terminators = [
+    #     tokenizer.eos_token_id,
+    #     tokenizer.convert_tokens_to_ids("<|eot_id|>")
+    # ]
 
     outputs = model.generate(
         input_ids,
@@ -37,6 +48,8 @@ def llama3ChineseChat(prompt):
         do_sample=True,
         temperature=0.8,
         top_p=0.9,
+        # eos_token_id=terminators,
+        # pad_token_id=tokenizer.eos_token_id
     )
     response = outputs[0][input_ids.shape[-1]:]
     print(tokenizer.decode(response, skip_special_tokens=True))
