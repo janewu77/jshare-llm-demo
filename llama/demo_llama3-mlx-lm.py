@@ -1,4 +1,6 @@
 from mlx_lm import load, generate
+from datetime import datetime
+from dateutil import rrule
 
 # mlx-lm demo
 # myenv: mlx-lm-310
@@ -20,13 +22,14 @@ model_path = "/Users/jingwu/janewu/llm-model/llama/mlx/Meta-Llama-3-8B-Instruct-
 
 
 # load
+start_time = datetime.now()
 model, tokenizer = load(model_path)
 
 # prompt & conversion
 # prompt = "你好，你是谁?"
-# prompt = "买了一只股票，先涨了10%，再降10%，最终的盈亏情况如何？请给出具体计算过程和结论。think step by step"
+prompt = "买了一只股票，先涨了10%，再降10%，最终的盈亏情况如何？请给出具体计算过程和结论。think step by step"
 # prompt = "Write a story about Einstein"
-prompt = "who are you?"
+# prompt = "who are you?"
 # prompt = "hello"
 
 messages = [
@@ -47,6 +50,9 @@ chat_template = tokenizer.apply_chat_template(
 # generate
 response = generate(model, tokenizer, prompt=chat_template, verbose=True, max_tokens=512)  # temp=0.0
 
+seconds = rrule.rrule(freq=rrule.SECONDLY, dtstart=start_time, until=datetime.now())
+print(f"total spend: {seconds.count()} seconds")
+
 # output
 # 70B-Instruct-4bit
 # Prompt: 15.810 tokens-per-sec
@@ -55,6 +61,7 @@ response = generate(model, tokenizer, prompt=chat_template, verbose=True, max_to
 # 8B-Instruct-4bit
 # Prompt: 316.486 tokens-per-sec
 # Generation: 65.956 tokens-per-sec
+# total spend: 13 seconds
 
 
 # JW/Meta-Llama-3-8B-Instruct
